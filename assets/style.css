@@ -1,1 +1,1730 @@
+/* ==========================================================
+   SHOPEE FOOD ANALYTICS DASHBOARD
+   Buffet The Padang Pasir
+   FINAL VERSION
+========================================================== */
 
+
+/* ==========================================================
+   ROOT VARIABLES
+========================================================== */
+
+:root{
+
+    --primary:#EE4D2D;
+
+    --primary-hover:#D84315;
+
+    --secondary:#FF6B4A;
+
+    --background:#F6F8FB;
+
+    --white:#FFFFFF;
+
+    --border:#E5E7EB;
+
+    --text:#1F2937;
+
+    --text-light:#6B7280;
+
+    --success:#10B981;
+
+    --warning:#F59E0B;
+
+    --danger:#EF4444;
+
+    --shadow:
+        0 8px 24px rgba(0,0,0,.06);
+
+}
+
+
+/* ==========================================================
+   GLOBAL
+========================================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:
+    "Segoe UI",
+    sans-serif;
+
+}
+
+.stApp{
+
+    background:var(--background);
+
+}
+
+.block-container{
+
+    max-width:1400px;
+
+    padding-top:30px;
+
+    padding-bottom:40px;
+
+}
+
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+[data-testid="stSidebar"]{
+
+    background:var(--white);
+
+    border-right:1px solid var(--border);
+
+}
+
+[data-testid="stSidebarContent"]{
+
+    padding:24px 18px;
+
+}
+
+/* ==========================================================
+   OPTION MENU
+========================================================== */
+
+.nav-link{
+
+    margin:8px 0 !important;
+
+    padding:13px 16px !important;
+
+    border-radius:14px !important;
+
+    font-weight:600 !important;
+
+    transition:.25s;
+
+}
+
+.nav-link:hover{
+
+    background:#FFF3F0 !important;
+
+    color:var(--primary) !important;
+
+}
+
+.nav-link-selected{
+
+    background:var(--primary) !important;
+
+    color:white !important;
+
+}
+
+
+/* ==========================================================
+   PAGE TITLE
+========================================================== */
+
+h1{
+
+    color:var(--text);
+
+    font-weight:700;
+
+    letter-spacing:.2px;
+
+}
+
+h2{
+
+    color:var(--text);
+
+    font-weight:700;
+
+}
+
+h3{
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+h4{
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.section-title{
+
+    margin-bottom:20px;
+
+}
+
+.section-title h2{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.section-subtitle{
+
+    margin-top:8px;
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+
+/* ==========================================================
+   HERO CARD
+========================================================== */
+
+.hero-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            #EE4D2D,
+            #FF6B4A
+        );
+
+    border-radius:24px;
+
+    padding:40px;
+
+    color:white;
+
+    margin-bottom:30px;
+
+    box-shadow:
+        0 12px 32px rgba(238,77,45,.25);
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.hero-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    top:-100px;
+
+    right:-80px;
+
+}
+
+.hero-card h1{
+
+    color:white;
+
+    margin:0;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    position:relative;
+
+}
+
+.hero-card p{
+
+    color:white;
+
+    margin-top:18px;
+
+    line-height:1.9;
+
+    font-size:16px;
+
+    max-width:700px;
+
+    position:relative;
+
+}
+
+
+/* ==========================================================
+   METRIC CARD
+========================================================== */
+
+.metric-card{
+
+    background:var(--white);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+    cursor:default;
+
+}
+
+.metric-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 16px 36px rgba(0,0,0,.10);
+
+}
+
+.metric-icon{
+
+    width:65px;
+
+    height:65px;
+
+    margin:auto;
+
+    margin-bottom:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#FFF3F0;
+
+    font-size:30px;
+
+}
+
+.metric-value{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+}
+
+.metric-title{
+
+    font-size:15px;
+
+    color:var(--text-light);
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================================
+   GENERIC CARD
+========================================================== */
+
+.card{
+
+    background:var(--white);
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:22px;
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 14px 32px rgba(0,0,0,.08);
+
+}
+/* ==========================================================
+   INFO CARD
+========================================================== */
+
+.info-card{
+
+    background:var(--white);
+
+    border-left:6px solid #3B82F6;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    margin-bottom:22px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+}
+
+.info-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 16px 36px rgba(59,130,246,.12);
+
+}
+
+.info-card h4{
+
+    margin:0 0 14px;
+
+    color:#2563EB;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.info-card p{
+
+    margin:0;
+
+    color:var(--text-light);
+
+    line-height:1.9;
+
+}
+
+
+/* ==========================================================
+   WARNING CARD
+========================================================== */
+
+.warning-card{
+
+    background:#FFFDF7;
+
+    border-left:6px solid var(--warning);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    margin-bottom:22px;
+
+    border:1px solid #FDE68A;
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+}
+
+.warning-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.warning-card h4{
+
+    margin:0 0 14px;
+
+    color:#B45309;
+
+    font-size:18px;
+
+}
+
+.warning-card p{
+
+    margin:0;
+
+    line-height:1.9;
+
+}
+
+
+/* ==========================================================
+   SUCCESS CARD
+========================================================== */
+
+.success-card{
+
+    background:#ECFDF5;
+
+    border-left:6px solid var(--success);
+
+    border-radius:20px;
+
+    padding:20px 24px;
+
+    margin-bottom:22px;
+
+    border:1px solid #A7F3D0;
+
+    color:#047857;
+
+    font-weight:600;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/* ==========================================================
+   ANALYSIS CARD
+========================================================== */
+
+.analysis-card{
+
+    background:var(--white);
+
+    border-left:6px solid #8B5CF6;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    margin-bottom:22px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+}
+
+.analysis-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.analysis-card h4{
+
+    margin:0 0 14px;
+
+    color:#6D28D9;
+
+    font-size:18px;
+
+}
+
+.analysis-card p{
+
+    margin:0;
+
+    line-height:1.9;
+
+}
+
+
+/* ==========================================================
+   RECOMMENDATION CARD
+========================================================== */
+
+.recommendation-card{
+
+    background:var(--white);
+
+    border-left:6px solid var(--success);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    margin-bottom:22px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+}
+
+.recommendation-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.recommendation-card h4{
+
+    margin:0 0 16px;
+
+    color:var(--success);
+
+    font-size:18px;
+
+}
+
+.recommendation-card ul{
+
+    margin:0;
+
+    padding-left:22px;
+
+}
+
+.recommendation-card li{
+
+    margin-bottom:12px;
+
+    line-height:1.9;
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================================================
+   EMPTY CARD
+========================================================== */
+
+.empty-card{
+
+    background:#FAFAFA;
+
+    border:2px dashed var(--border);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    margin-bottom:22px;
+
+}
+
+.empty-card h4{
+
+    margin-bottom:12px;
+
+    color:var(--text);
+
+}
+
+.empty-card p{
+
+    margin:0;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+/* ==========================================================
+   CLUSTER CARD
+========================================================== */
+
+.cluster-card{
+
+    background:var(--white);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    border:1px solid var(--border);
+
+    border-top:5px solid var(--primary);
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+    margin-bottom:22px;
+
+}
+
+.cluster-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 16px 36px rgba(238,77,45,.12);
+
+}
+
+.cluster-header{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.cluster-name{
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+
+}
+
+.cluster-total{
+
+    background:#FFF3F0;
+
+    color:var(--primary);
+
+    padding:12px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    text-align:center;
+
+}
+
+.cluster-percent{
+
+    margin-top:18px;
+
+    text-align:right;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+
+/* ==========================================================
+   UPLOAD CARD
+========================================================== */
+
+.upload-card{
+
+    background:var(--white);
+
+    border:2px dashed var(--primary);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    transition:.30s;
+
+}
+
+.upload-card:hover{
+
+    background:#FFF8F6;
+
+}
+
+.upload-title{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+.upload-subtitle{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+
+/* ==========================================================
+   SEARCH BOX
+========================================================== */
+
+.stTextInput input{
+
+    border-radius:14px;
+
+    border:1px solid var(--border);
+
+    padding:12px;
+
+    transition:.25s;
+
+}
+
+.stTextInput input:focus{
+
+    border:1px solid var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(238,77,45,.12);
+
+}
+
+
+/* ==========================================================
+   SELECT BOX
+========================================================== */
+
+.stSelectbox{
+
+    margin-bottom:18px;
+
+}
+
+
+/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+.table-card{
+
+    background:var(--white);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:25px;
+
+}
+
+
+/* ==========================================================
+   DATAFRAME
+========================================================== */
+
+[data-testid="stDataFrame"]{
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.04);
+
+}
+
+
+/* ==========================================================
+   FILE UPLOADER
+========================================================== */
+
+[data-testid="stFileUploader"]{
+
+    border-radius:18px;
+
+    border:2px dashed var(--primary);
+
+    background:white;
+
+    padding:15px;
+
+}
+
+[data-testid="stFileUploader"] section{
+
+    padding:15px;
+
+}
+
+
+/* ==========================================================
+   CHART CARD
+========================================================== */
+
+.chart-card{
+
+    background:var(--white);
+
+    border-radius:20px;
+
+    padding:22px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:22px;
+
+}
+
+
+/* ==========================================================
+   PLOTLY
+========================================================== */
+
+.js-plotly-plot{
+
+    border-radius:18px;
+
+}
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.stButton > button{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+    box-shadow:0 8px 18px rgba(238,77,45,.18);
+
+}
+
+.stButton > button:hover{
+
+    background:var(--primary-hover);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 14px 26px rgba(238,77,45,.25);
+
+}
+
+.stButton > button:focus{
+
+    outline:none;
+
+}
+
+
+/* ==========================================================
+   DOWNLOAD BUTTON
+========================================================== */
+
+.stDownloadButton > button{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.stDownloadButton > button:hover{
+
+    background:var(--primary-hover);
+
+}
+
+
+/* ==========================================================
+   STREAMLIT METRIC
+========================================================== */
+
+[data-testid="metric-container"]{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:15px;
+
+}
+
+
+/* ==========================================================
+   TABS
+========================================================== */
+
+.stTabs{
+
+    margin-top:10px;
+
+}
+
+button[role="tab"]{
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+button[role="tab"]:hover{
+
+    background:#FFF3F0;
+
+}
+
+
+/* ==========================================================
+   EXPANDER
+========================================================== */
+
+.streamlit-expanderHeader{
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+
+/* ==========================================================
+   HORIZONTAL RULE
+========================================================== */
+
+hr{
+
+    border:none;
+
+    border-top:1px solid var(--border);
+
+    margin:30px 0;
+
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F1F1F1;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-hover);
+
+}
+
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.metric-card,
+.info-card,
+.cluster-card,
+.analysis-card,
+.recommendation-card,
+.table-card,
+.chart-card{
+
+    animation:fadeUp .35s ease;
+
+}
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+    .hero-card{
+
+        padding:30px;
+
+    }
+
+    .hero-card h1{
+
+        font-size:28px;
+
+    }
+
+    .metric-value{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .block-container{
+
+        padding-top:15px;
+
+        padding-left:15px;
+
+        padding-right:15px;
+
+    }
+
+    .hero-card{
+
+        padding:25px;
+
+    }
+
+    .hero-card h1{
+
+        font-size:24px;
+
+    }
+
+    .section-title h2{
+
+        font-size:24px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   FOOTER SPACE
+========================================================== */
+
+footer{
+
+    visibility:hidden;
+
+}
+
+header{
+
+    background:transparent;
+
+}
+/* ==========================================================
+   CLUSTER CARD
+========================================================== */
+
+.cluster-card {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+
+    transition: .3s;
+
+}
+
+.cluster-card:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================================
+   PRIORITAS TINGGI
+========================================================== */
+
+.high-priority{
+
+    border-left:8px solid #ff7a00;
+
+    background:#fff8f2;
+
+}
+
+/* ==========================================================
+   PRIORITAS NORMAL
+========================================================== */
+
+.normal-priority{
+
+    border-left:8px solid #2e7d32;
+
+    background:#f4fff5;
+
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.cluster-title{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.cluster-subtitle{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   INFO BOX
+========================================================== */
+
+.info-box{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border:1px solid #ececec;
+
+}
+
+/* ==========================================================
+   CHECKLIST
+========================================================== */
+
+.check-item{
+
+    margin-bottom:8px;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   REKOMENDASI
+========================================================== */
+
+.rekomendasi{
+
+    background:#f8f9fa;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    margin-top:15px;
+
+    border:1px solid #ececec;
+
+}
+
+/* ==========================================================
+   KPI CARD
+========================================================== */
+
+.kpi-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+
+    text-align:center;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+[data-testid="stDataFrame"]{
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================================
+   PLOTLY
+========================================================== */
+
+.js-plotly-plot{
+
+    border-radius:18px;
+
+    background:white;
+
+    padding:10px;
+
+}
+
+/* ==========================================================
+   EXPANDER
+========================================================== */
+
+.streamlit-expanderHeader{
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+/* ==========================================================
+   DASHBOARD CLUSTER
+========================================================== */
+
+.cluster-box{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    height:100%;
+
+}
+
+.cluster-high{
+
+    border-top:6px solid #ff7a00;
+
+}
+
+.cluster-normal{
+
+    border-top:6px solid #34a853;
+
+}
+
+.cluster-title{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:5px;
+
+}
+
+.cluster-desc{
+
+    color:#777;
+
+    margin-bottom:25px;
+
+}
+
+.mini-card{
+
+    background:#f8f9fa;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    text-align:center;
+
+    border:1px solid #ececec;
+
+    margin-bottom:15px;
+
+}
+
+.mini-number{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+.mini-title{
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+.section-title{
+
+    font-weight:700;
+
+    margin-top:20px;
+
+    margin-bottom:10px;
+
+    font-size:18px;
+
+}
+
+.check-list{
+
+    line-height:2;
+
+}
+
+.rekom-card{
+
+    background:#f7f7f7;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-top:15px;
+
+    border-left:4px solid #ff7a00;
+
+}
+
+.rekom-card-green{
+
+    background:#f7f7f7;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-top:15px;
+
+    border-left:4px solid #34a853;
+
+}
+/* ==========================================================
+   DASHBOARD KPI
+==========================================================*/
+
+.dashboard-row{
+
+    display:flex;
+
+    gap:18px;
+
+    justify-content:space-between;
+
+    margin-top:15px;
+
+    margin-bottom:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.dashboard-card{
+
+    flex:1;
+
+    min-width:210px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    border:1px solid #ececec;
+
+    transition:.3s;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+
+}
+
+.dashboard-icon{
+
+    font-size:28px;
+
+}
+
+.dashboard-value{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    margin-top:15px;
+
+}
+
+.dashboard-label{
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+.dashboard-percent{
+
+    margin-top:8px;
+
+    color:#1b5e20;
+
+    font-weight:bold;
+
+}
+
+.orange{
+
+    color:#ff7a00;
+
+}
+
+.green{
+
+    color:#34a853;
+
+}
+
+
+/* ==========================================================
+   CONTAINER
+==========================================================*/
+
+.block-container{
+
+    padding-top:2rem;
+
+}
+
+
+/* ==========================================================
+   DATAFRAME
+==========================================================*/
+
+[data-testid="stDataFrame"]{
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+}
+
+
+/* ==========================================================
+   BUTTON
+==========================================================*/
+
+.stButton>button{
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    height:48px;
+
+}
+
+
+/* ==========================================================
+   METRIC
+==========================================================*/
+
+[data-testid="stMetric"]{
+
+    border-radius:12px;
+
+    border:1px solid #ececec;
+
+    padding:12px;
+
+}
+
+
+/* ==========================================================
+   EXPANDER
+==========================================================*/
+
+.streamlit-expanderHeader{
+
+    font-weight:bold;
+
+}
+
+
+/* ==========================================================
+   PLOTLY
+==========================================================*/
+
+.js-plotly-plot{
+
+    border-radius:15px;
+
+}
+
+
+/* ==========================================================
+   SUCCESS
+==========================================================*/
+
+.stAlert{
+
+    border-radius:12px;
+
+}
